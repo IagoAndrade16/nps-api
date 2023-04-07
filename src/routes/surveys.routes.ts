@@ -3,7 +3,7 @@ import { SurveysController } from "../controllers/SurveysController";
 
 export const surveysRouter = Router()
 
-const surveyController = new SurveysController();
+const surveysController = new SurveysController();
 
-surveysRouter.post("/", surveyController.create)
-surveysRouter.get("/", surveyController.show)
+surveysRouter.post("/", surveysController.create)
+surveysRouter.get("/", surveysController.show)
