@@ -5,6 +5,7 @@ import { SurveysRepository } from "../repositories/SurveysRepository";
 import { SurveysUsersRepository } from "../repositories/SurveysUsersRepository";
 import SendMailService from "../services/SendMailService";
 import { resolve } from "path";
+import { AppError } from "../errors/AppError";
 
 export class SendEmailController {
   async execute(req: Request, res: Response): Promise<Response> {
@@ -17,10 +18,7 @@ export class SendEmailController {
     const user = await usersRepository.findOne({email});
 
     if(!user) {
-      return res.status(400).json({
-        status: "ERROR",
-        message: "USER_NOT_FOUND"
-      })
+      throw new AppError("USER_NOT_FOUND");
     }
 
     const survey = await surveysRepository.findOne({
@@ -30,10 +28,7 @@ export class SendEmailController {
     })
 
     if(!survey) {
-      return res.status(400).json({
-        status: "ERROR",
-        message: "SURVEY_NOT_FOUND"
-      })
+      throw new AppError("SURVEY_NOT_FOUND");
     }
 
     const npsPath = resolve(__dirname, "..", "views", "emails", "npsMail.hbs"); // get path
