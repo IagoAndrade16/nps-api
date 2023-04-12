@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { SurveysUsersRepository } from "../repositories/SurveysUsersRepository";
 import { getCustomRepository } from "typeorm";
-import { AppError } from "../errors/AppError";
+import { AppError } from "../../infra/errors/AppError";
 
 export class AnswerController {
   async execute(req: Request, res: Response): Promise<Response> {

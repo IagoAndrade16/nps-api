@@ -1,10 +1,11 @@
 import "reflect-metadata";
 import express, { NextFunction, Request, Response } from 'express';
 import "express-async-errors";
-import createConnection from "./database"
-import { router } from "./routes/routes"
+import createConnection from "../database"
+import { router } from "../domain/routes/routes"
 import * as dotenv from "dotenv";
 import { AppError } from "./errors/AppError";
+import "./container"
 
 dotenv.config()
 createConnection()

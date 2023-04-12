@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
-import { UsersRepository } from "../repositories/UsersRepository";
+import { UsersRepository } from "../modules/users/repositories/implementations/UsersRepository";
 import { SurveysRepository } from "../repositories/SurveysRepository";
 import { SurveysUsersRepository } from "../repositories/SurveysUsersRepository";
 import SendMailService from "../services/SendMailService";
 import { resolve } from "path";
-import { AppError } from "../errors/AppError";
+import { AppError } from "../../infra/errors/AppError";
 
 export class SendEmailController {
   async execute(req: Request, res: Response): Promise<Response> {
