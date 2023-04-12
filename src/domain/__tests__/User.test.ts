@@ -1,6 +1,6 @@
 import request from "supertest";
-import { app } from "../app";
-import createConnection from "../database";
+import { app } from "../../infra/app";
+import createConnection from "../../database";
 import { getConnection } from "typeorm";
 
 describe("User", () => {

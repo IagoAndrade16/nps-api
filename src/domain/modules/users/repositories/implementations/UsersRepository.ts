@@ -1,7 +1,7 @@
 import { EntityRepository, Repository, getRepository } from "typeorm";
-import { User } from "../../../../models/User";
+import { User } from "../../entities/User";
 import { IUsersRepository } from "../IUsersRepository";
-import { CreateUserInput } from "../../createUser/CreateUserUseCase";
+import { CreateUserInput } from "../../useCases/CreateUserUseCase";
 import { singleton } from "tsyringe";
 
 export class UsersRepository implements IUsersRepository {

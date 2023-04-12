@@ -1,5 +1,5 @@
-import { AppError } from "../../../errors/AppError";
-import { User } from "../../../models/User";
+import { AppError } from "../../../../infra/errors/AppError";
+import { User } from "../entities/User";
 import { inject, injectable } from "tsyringe";
 import { IUsersRepository } from "../repositories/IUsersRepository";
 

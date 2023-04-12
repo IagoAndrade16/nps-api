@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import * as yup from "yup";
-import { AppError } from "../../../errors/AppError";
-import { CreateUserUseCase } from "./CreateUserUseCase";
+import { AppError } from "../../../../infra/errors/AppError";
+import { CreateUserUseCase } from "../useCases/CreateUserUseCase";
 import { container } from "tsyringe";
 
 const ValidationSchema = yup.object().shape({

@@ -1,5 +1,5 @@
-import { User } from "../../../models/User"
-import { CreateUserInput } from "../createUser/CreateUserUseCase"
+import { User } from "../entities/User"
+import { CreateUserInput } from "../useCases/CreateUserUseCase"
 
 export interface IUsersRepository {
   create(data: CreateUserInput): Promise<User>;
