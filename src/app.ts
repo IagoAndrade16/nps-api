@@ -5,6 +5,7 @@ import createConnection from "./database"
 import { router } from "./routes/routes"
 import * as dotenv from "dotenv";
 import { AppError } from "./errors/AppError";
+import "./container"
 
 dotenv.config()
 createConnection()
