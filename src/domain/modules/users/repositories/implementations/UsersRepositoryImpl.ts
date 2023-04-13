@@ -1,11 +1,11 @@
-import { EntityRepository, Repository, getRepository } from "typeorm";
+import { Repository, getRepository } from "typeorm";
 import { User } from "../../entities/User";
-import { IUsersRepository } from "../IUsersRepository";
+import { UsersRepository } from "../UsersRepository";
 import { CreateUserInput } from "../../useCases/CreateUserUseCase";
-import { singleton } from "tsyringe";
 
-export class UsersRepository implements IUsersRepository {
+export class UsersRepositoryImpl implements UsersRepository {
   private repository: Repository<User>;
+  
   constructor() {
     this.repository = getRepository(User);
   }
@@ -33,4 +33,4 @@ export class UsersRepository implements IUsersRepository {
   
 }
 
-export const userRepositoryAlias = "UsersRepository"
+export const usersRepositoryAlias = "UsersRepository"

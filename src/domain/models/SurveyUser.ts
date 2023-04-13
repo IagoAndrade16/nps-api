@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid"
 import { User } from "../modules/users/entities/User";
-import { Survey } from "./Surveys";
+import { Survey } from "../modules/surveys/entities/Surveys";
 
 @Entity("surveys_users")
 export class SurveyUser {

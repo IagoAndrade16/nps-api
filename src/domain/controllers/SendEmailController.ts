@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
-import { UsersRepository } from "../modules/users/repositories/implementations/UsersRepository";
-import { SurveysRepository } from "../repositories/SurveysRepository";
+import { UsersRepository } from "../modules/users/repositories/implementations/UsersRepositoryImpl";
+import { SurveysRepository } from "../modules/surveys/repositories/SurveysRepository";
 import { SurveysUsersRepository } from "../repositories/SurveysUsersRepository";
 import SendMailService from "../services/SendMailService";
 import { resolve } from "path";

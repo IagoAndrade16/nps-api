@@ -1,7 +1,7 @@
 import { AppError } from "../../../../infra/errors/AppError";
 import { User } from "../entities/User";
 import { inject, injectable } from "tsyringe";
-import { IUsersRepository } from "../repositories/IUsersRepository";
+import { UsersRepository } from "../repositories/UsersRepository";
 
 export type CreateUserInput = {
   name: string;
@@ -12,7 +12,7 @@ export type CreateUserInput = {
 export class CreateUserUseCase {
   constructor(
     @inject("UsersRepository")
-    private usersRepository: IUsersRepository
+    private usersRepository: UsersRepository
   ) {}
   async execute({ name, email}): Promise<User> {
 
