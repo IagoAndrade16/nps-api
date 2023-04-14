@@ -8,6 +8,7 @@ export class SurveysUsersRepositoryImpl implements SurveysUsersRepository {
   constructor() {
     this.repository = getRepository(SurveyUser)
   }
+
   async create(data: CreateSurveyUserInput): Promise<SurveyUser> {
     const surveyUser = this.repository.create(data);
 
@@ -19,6 +20,14 @@ export class SurveysUsersRepositoryImpl implements SurveysUsersRepository {
     const survey_user = await this.repository.findOne({
       where: { user_id,  value: null },
       relations: ["user", "survey"]
+    })
+
+    return survey_user;
+  }
+
+  async findBySurveyId(id: string): Promise<SurveyUser> {
+    const survey_user = await this.repository.findOne({
+      where: { id,  value: null }
     })
 
     return survey_user;
