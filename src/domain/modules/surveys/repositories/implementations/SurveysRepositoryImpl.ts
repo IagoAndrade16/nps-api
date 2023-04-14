@@ -23,4 +23,10 @@ export class SurveysRepositoryImpl implements SurveysRepository {
     return listOfAllSurveys;
   }
 
+  async findById(survey_id: string): Promise<Survey> {
+    const survey = await this.repository.findOne(survey_id);
+
+    return survey;
+  }
+
 }

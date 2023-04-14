@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { SurveysUsersRepository } from "../repositories/SurveysUsersRepository";
+import { SurveysUsersRepository } from "../modules/surveysUsers/repositories/SurveysUsersRepository";
 import { getCustomRepository } from "typeorm";
 import { AppError } from "../../infra/errors/AppError";
 
