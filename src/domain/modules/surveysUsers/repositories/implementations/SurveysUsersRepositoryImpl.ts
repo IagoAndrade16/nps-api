@@ -32,4 +32,12 @@ export class SurveysUsersRepositoryImpl implements SurveysUsersRepository {
 
     return survey_user;
   }
+
+  async  findAllSurveysById(id: string): Promise<SurveyUser[]> {
+    const surveysUsers = await this.repository.find({
+      survey_id: id
+    })
+
+    return surveysUsers;
+  }
 }

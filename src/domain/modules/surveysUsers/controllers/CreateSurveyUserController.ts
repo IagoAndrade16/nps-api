@@ -3,7 +3,7 @@ import { container } from "tsyringe";
 import { CreateSurveyUserUseCase } from "../useCases/CreateSurveyUserUseCase";
 
 export class CreateSurveyUserController {
-  async execute(req: Request, res: Response): Promise<Response> {
+  async handle(req: Request, res: Response): Promise<Response> {
     const { email, survey_id } = req.body;
 
     const createSurveyUserUseCase = container.resolve(CreateSurveyUserUseCase);

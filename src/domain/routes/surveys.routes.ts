@@ -9,9 +9,7 @@ export const surveysRouter = Router();
 const createSurveyController = new CreateSurveyController();
 const listAllSurveysController = new ListAllSurveysController();
 const answerController = new SetSurveyUserAnswerController();
-const npsController = new NpsController();
 
 surveysRouter.post("/", createSurveyController.handle);
 surveysRouter.get("/", listAllSurveysController.handle);
 surveysRouter.get("/answers/:value", answerController.execute);
-surveysRouter.get("/nps/:survey_id", npsController.execute);
