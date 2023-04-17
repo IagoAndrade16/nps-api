@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import * as yup from "yup";
-import { AppError } from "../../../../infra/errors/AppError";
 import { CreateUserUseCase } from "../useCases/CreateUserUseCase";
 import { container } from "tsyringe";
 
@@ -12,14 +11,10 @@ const ValidationSchema = yup.object().shape({
 export class CreateUserController {
   
   async handle(req: Request, res: Response): Promise<Response> {
-    const { name, email } = req.body
+    const body =  await ValidationSchema.validate(req.body, { abortEarly: false });
 
-    try {
-      await ValidationSchema.validate(req.body, { abortEarly: false });
+    const { name, email } = body
 
-    } catch(err) {
-      throw new AppError(err);
-    }
     const createUserUseCase = container.resolve(CreateUserUseCase);
 
     const user = await createUserUseCase.execute({ name, email });
@@ -27,7 +22,7 @@ export class CreateUserController {
     return res.status(201).json({
       result: "SUCCESS",
       message: "USER_CREATED",
-      data: { user }
+      data: user
     })
 
   }
