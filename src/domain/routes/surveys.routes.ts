@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { CreateSurveyController } from "../modules/surveys/controllers/CreateSurveyController";
 import { SetSurveyUserAnswerController } from "../modules/surveysUsers/controllers/SetSurveyUserAnswerController";
-import { NpsController } from "../controllers/NpsController";
 import { ListAllSurveysController } from "../modules/surveys/controllers/ListAllSurveysController";
 
 export const surveysRouter = Router();
