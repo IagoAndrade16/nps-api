@@ -14,8 +14,8 @@ export class CreateSurveyUseCase {
     private surveysRepository: SurveysRepository
   ) {}
 
-  async execute({ title, description }: CreateSurveyInput): Promise<Survey> {
-    const survey = await this.surveysRepository.create({ title, description });
+  async execute(data: CreateSurveyInput): Promise<Survey> {
+    const survey = await this.surveysRepository.create(data);
 
     return survey;
   }

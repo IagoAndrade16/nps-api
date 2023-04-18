@@ -11,4 +11,4 @@ const answerController = new SetSurveyUserAnswerController();
 
 surveysRouter.post("/", createSurveyController.handle);
 surveysRouter.get("/", listAllSurveysController.handle);
-surveysRouter.get("/answers/:value", answerController.execute);
+surveysRouter.get("/answers/:value", answerController.handle);
