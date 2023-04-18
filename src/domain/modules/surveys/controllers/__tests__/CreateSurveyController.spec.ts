@@ -1,13 +1,17 @@
 import request from "supertest";
 import { createConnection, getConnection } from "typeorm";
 import { app } from "../../../../../infra/app";
+import { config } from "dotenv";
 
-const route = '/users';
+config();
 
-describe("Create User", () => {
+const route = '/surveys';
+
+describe("Create survey", () => {
   beforeAll(async () => {
     const connection = await createConnection();
     await connection.runMigrations()
+
   })
 
   afterAll(async () => {
@@ -17,24 +21,26 @@ describe("Create User", () => {
   })
 
   describe("Schema validation", () => {
-    it("should not be able create user if !email | !name", async () => {
+    it("should not be able create survey if !title | !description", async () => {
       const res = await request(app).post(route)
       .send({
-        name: "Iago"
+        title: "Iago"
       })
   
       expect(res.status).toBe(500)
-      expect(res.body.message).toBe("Internal server error: email is a required field");
+      expect(res.body.message).toBe("Internal server error: description is a required field");
     })
   })
 
-  it("should be able to create a new user", async () => {
+  it("should be able to create a new survey", async () => {
     const res = await request(app).post(route)
     .send({
-      name: "Iago",
-      email: "useadasdasd@example.com"
+      title: "titulo",
+      description: "descrição"
     })
 
-    expect(res.status).toBe(201)
+    expect(res.status).toBe(201);
+    expect(res.body.message).toBe("SURVEY_CREATED");
+    expect(res.body.data).toHaveProperty("id");
   })
 })
