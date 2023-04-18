@@ -1,9 +1,6 @@
 import request from "supertest";
 import { createConnection, getConnection } from "typeorm";
 import { app } from "../../../../../infra/app";
-import { config } from "dotenv";
-
-config();
 
 const route = '/surveys';
 
