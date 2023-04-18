@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
-import { SurveysUsersRepository, surveysUsersRepositoryAlias } from "../repositories/SurveysUsersRepository";
-import { AppError } from "../../../../infra/errors/AppError";
-import { container, inject } from "tsyringe";
+import { container } from "tsyringe";
 import { SetSurveyUserAnswerUseCase } from "../useCases/SetSurveyUserAnswerUseCase";
 
 export class SetSurveyUserAnswerController {
