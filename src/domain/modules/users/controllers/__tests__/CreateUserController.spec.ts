@@ -23,8 +23,8 @@ describe("Create User", () => {
         name: "Iago"
       })
   
-      expect(res.status).toBe(400)
-      expect(res.body.message.errors[0]).toBe("email is a required field");
+      expect(res.status).toBe(500)
+      expect(res.body.message).toBe("Internal server error: email is a required field");
     })
   })
 

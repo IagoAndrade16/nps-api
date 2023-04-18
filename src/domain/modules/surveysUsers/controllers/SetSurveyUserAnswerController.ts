@@ -5,7 +5,7 @@ import { container, inject } from "tsyringe";
 import { SetSurveyUserAnswerUseCase } from "../useCases/SetSurveyUserAnswerUseCase";
 
 export class SetSurveyUserAnswerController {
-  async execute(req: Request, res: Response): Promise<Response> {
+  async handle(req: Request, res: Response): Promise<Response> {
     const { value } = req.params;
     const { id } = req.query;
 
